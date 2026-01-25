@@ -1,0 +1,113 @@
+
+
+
+
+ssh -i "armageddon-lab.pem" ec2-user@18.233.154.59
+
+
+
+
+Last login: Wed Jan 14 17:57:41 on ttys005
+
+(base) kamau@iMac ~ % sudo dnf install -y mariadb105
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+sudo: 3 incorrect password attempts
+
+(base) kamau@iMac ~ %
+
+(base) kamau@iMac ~ % mysql -h armageddon-db.cmj2ggwuqnnl.us-east-1.rds.amazonaws.com -u admin -p
+
+Enter password:
+
+ERROR 2005 (HY000): Unknown MySQL server host 'armageddon-db.cmj2ggwuqnnl.us-east-1.rds.amazonaws.com' (0)
+
+(base) kamau@iMac ~ % ssh -i "armageddon-lab.pem" ec2-user@18.233.154.59     
+
+Warning: Identity file armageddon-lab.pem not accessible: No such file or directory.
+
+cd ~ssh: connect to host 18.233.154.59 port 22: Operation timed out
+
+(base) kamau@iMac ~ % cd ~/Downloads
+
+(base) kamau@iMac Downloads % ssh -i "armageddon-lab.pem" ec2-user@18.233.154.59
+
+chmod 400 armageddon-lab.pem
+
+ssh: connect to host 18.233.154.59 port 22: Operation timed out
+
+(base) kamau@iMac Downloads % chmod 400 armageddon-lab.pem
+
+(base) kamau@iMac Downloads % /Users/kamau/Downloads/armageddon-lab.pem
+
+zsh: permission denied: /Users/kamau/Downloads/armageddon-lab.pem
+
+(base) kamau@iMac Downloads % cd ~/Downloads
+
+(base) kamau@iMac Downloads % cd ~/Kamau
+
+cd: no such file or directory: /Users/kamau/Kamau
+
+(base) kamau@iMac Downloads % cd
+
+(base) kamau@iMac ~ % cd ~/lab
+
+cd: no such file or directory: /Users/kamau/lab
+
+(base) kamau@iMac ~ % cd ~/Downloads
+
+(base) kamau@iMac Downloads % ssh -i "armageddon-lab.pem" ec2-user@18.233.154.59
+
+cd ~/Downloads
+
+chmod 400 armageddon-lab.pem
+
+ssh: connect to host 18.233.154.59 port 22: Operation timed out
+
+(base) kamau@iMac Downloads % cd ~/Downloads
+
+(base) kamau@iMac Downloads % chmod 400 armageddon-lab.pem
+
+(base) kamau@iMac Downloads % ssh -i "armageddon-lab.pem" ec2-user@18.233.154.59
+
+mysql -h armageddon-db.cmj2ggwuqnnl.us-east-1.rds.amazonaws.com -u admin -p
+
+ssh -i "armageddon-lab.pem" ec2-user@18.233.154.59
+
+mysql -h armageddon-db.cmj2ggwuqnnl.us-east-1.rds.amazonaws.com -u admin -p
+
+ssh: connect to host 18.233.154.59 port 22: Operation timed out
+
+(base) kamau@iMac Downloads % mysql -h armageddon-db.cmj2ggwuqnnl.us-east-1.rds.amazonaws.com -u admin -p
+
+Enter password:
+
+ERROR 2005 (HY000): Unknown MySQL server host 'armageddon-db.cmj2ggwuqnnl.us-east-1.rds.amazonaws.com' (0)
+
+(base) kamau@iMac Downloads % ssh -i "armageddon-lab.pem" ec2-user@18.233.154.59
+
+ssh: connect to host 18.233.154.59 port 22: Operation timed out
+
+(base) kamau@iMac Downloads % cd ~/Downloads
+
+ssh -i "armageddon-lab.pem" ec2-user@18.233.154.59
+
+ssh: connect to host 18.233.154.59 port 22: Operation timed out
+
+(base) kamau@iMac Downloads % ssh -i "armageddon-lab.pem" ec2-user@18.233.154.59
+
+
+
+
+ssh: connect to host 18.233.154.59 port 22: Operation timed out
+
+(base) kamau@iMac Downloads %

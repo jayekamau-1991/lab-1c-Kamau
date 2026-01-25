@@ -1,0 +1,22 @@
+{
+  "gate": "network_db",
+  "timestamp_utc": "2026-01-25T21:14:25Z",
+  "region": "us-east-1",
+  "instance_id": "i-054f92978a5914153",
+  "db_id": "armageddon-db",
+  "engine": "mysql",
+  "db_port": "3306",
+  "publicly_accessible": "False",
+  "ec2_security_groups": "sg-0bea49d1edb82726c	sg-07afe6943fd2d6cce",
+  "rds_security_groups": "sg-09efb16df77af590b	sg-0bea49d1edb82726c",
+  "db_subnet_group": "rds-ec2-db-subnet-group-1",
+  "toggles": {
+    "check_private_subnets": false
+  },
+  "status": "PASS",
+  "exit_code": 0,
+  "details": [
+"PASS: aws sts get-caller-identity succeeded (credentials OK).","PASS: RDS instance exists (armageddon-db).","PASS: RDS is not publicly accessible (PubliclyAccessible=False).","PASS: discovered DB port = 3306 (engine=mysql).","PASS: EC2 security groups resolved (i-054f92978a5914153): sg-0bea49d1edb82726c	sg-07afe6943fd2d6cce","PASS: RDS security groups resolved (armageddon-db): sg-09efb16df77af590b	sg-0bea49d1edb82726c","PASS: RDS SG allows DB port 3306 from EC2 SG (SG-to-SG ingress present).","INFO: private subnet check disabled (CHECK_PRIVATE_SUBNETS=false)."],
+  "warnings": [],
+  "failures": []
+}

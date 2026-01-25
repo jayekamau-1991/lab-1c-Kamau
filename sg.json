@@ -1,0 +1,44 @@
+{
+    "SecurityGroups": [
+        {
+            "GroupId": "sg-09efb16df77af590b",
+            "IpPermissionsEgress": [],
+            "VpcId": "vpc-0ce840588109d77d1",
+            "SecurityGroupArn": "arn:aws:ec2:us-east-1:533972479438:security-group/sg-09efb16df77af590b",
+            "OwnerId": "533972479438",
+            "GroupName": "rds-ec2-2",
+            "Description": "Security group attached to armageddon-db to allow EC2 instances with specific security groups attached to connect to the database. Modification could lead to connection loss.",
+            "IpPermissions": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 0,
+                    "ToPort": 0,
+                    "UserIdGroupPairs": [
+                        {
+                            "UserId": "533972479438",
+                            "GroupId": "sg-0ce66ecbccca11d3e"
+                        }
+                    ],
+                    "IpRanges": [],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                },
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 3306,
+                    "ToPort": 3306,
+                    "UserIdGroupPairs": [
+                        {
+                            "Description": "Rule to allow connections from EC2 instances with sg-0a8988c3c71676067 attached",
+                            "UserId": "533972479438",
+                            "GroupId": "sg-0bea49d1edb82726c"
+                        }
+                    ],
+                    "IpRanges": [],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ]
+        }
+    ]
+}

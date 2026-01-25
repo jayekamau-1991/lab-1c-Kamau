@@ -1,0 +1,8 @@
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "SecretsManagerReadWrite",
+            "PolicyArn": "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
+        }
+    ]
+}

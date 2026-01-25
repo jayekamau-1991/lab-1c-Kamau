@@ -1,0 +1,172 @@
+{
+    "Reservations": [
+        {
+            "ReservationId": "r-0130d5ef493773185",
+            "OwnerId": "533972479438",
+            "Groups": [],
+            "Instances": [
+                {
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/xvda",
+                            "Ebs": {
+                                "AttachTime": "2026-01-08T00:44:25+00:00",
+                                "DeleteOnTermination": true,
+                                "Status": "attached",
+                                "VolumeId": "vol-0af5b7c83cc3548f6"
+                            }
+                        }
+                    ],
+                    "ClientToken": "5738b8d9-d3f4-4885-8b25-b70e1e79cc7a",
+                    "EbsOptimized": true,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "IamInstanceProfile": {
+                        "Arn": "arn:aws:iam::533972479438:instance-profile/lab-ec2-secrets-role",
+                        "Id": "AIPAXYUZ5NXHAGYANRU53"
+                    },
+                    "NetworkInterfaces": [
+                        {
+                            "Attachment": {
+                                "AttachTime": "2026-01-08T00:44:24+00:00",
+                                "AttachmentId": "eni-attach-03264c4a743413e07",
+                                "DeleteOnTermination": true,
+                                "DeviceIndex": 0,
+                                "Status": "attached",
+                                "NetworkCardIndex": 0
+                            },
+                            "Description": "",
+                            "Groups": [
+                                {
+                                    "GroupId": "sg-0bea49d1edb82726c",
+                                    "GroupName": "armageddon-ec2-lab"
+                                },
+                                {
+                                    "GroupId": "sg-07afe6943fd2d6cce",
+                                    "GroupName": "ec2-rds-1"
+                                }
+                            ],
+                            "Ipv6Addresses": [],
+                            "MacAddress": "0e:8b:5f:0b:02:39",
+                            "NetworkInterfaceId": "eni-089047de0b62e37ee",
+                            "OwnerId": "533972479438",
+                            "PrivateDnsName": "ip-10-0-1-165.ec2.internal",
+                            "PrivateIpAddress": "10.0.1.165",
+                            "PrivateIpAddresses": [
+                                {
+                                    "Primary": true,
+                                    "PrivateDnsName": "ip-10-0-1-165.ec2.internal",
+                                    "PrivateIpAddress": "10.0.1.165"
+                                }
+                            ],
+                            "SourceDestCheck": true,
+                            "Status": "in-use",
+                            "SubnetId": "subnet-01f361366cf94e7b3",
+                            "VpcId": "vpc-0ce840588109d77d1",
+                            "InterfaceType": "interface",
+                            "Operator": {
+                                "Managed": false
+                            }
+                        }
+                    ],
+                    "RootDeviceName": "/dev/xvda",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [
+                        {
+                            "GroupId": "sg-0bea49d1edb82726c",
+                            "GroupName": "armageddon-ec2-lab"
+                        },
+                        {
+                            "GroupId": "sg-07afe6943fd2d6cce",
+                            "GroupName": "ec2-rds-1"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "lab-1a"
+                        },
+                        {
+                            "Key": "lab-ec2-app",
+                            "Value": "lab-ec2-app"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    },
+                    "MetadataOptions": {
+                        "State": "applied",
+                        "HttpTokens": "required",
+                        "HttpPutResponseHopLimit": 2,
+                        "HttpEndpoint": "enabled",
+                        "HttpProtocolIpv6": "disabled",
+                        "InstanceMetadataTags": "disabled"
+                    },
+                    "EnclaveOptions": {
+                        "Enabled": false
+                    },
+                    "BootMode": "uefi-preferred",
+                    "PlatformDetails": "Linux/UNIX",
+                    "UsageOperation": "RunInstances",
+                    "UsageOperationUpdateTime": "2026-01-08T00:44:24+00:00",
+                    "PrivateDnsNameOptions": {
+                        "HostnameType": "ip-name",
+                        "EnableResourceNameDnsARecord": false,
+                        "EnableResourceNameDnsAAAARecord": false
+                    },
+                    "MaintenanceOptions": {
+                        "AutoRecovery": "default",
+                        "RebootMigration": "default"
+                    },
+                    "CurrentInstanceBootMode": "uefi",
+                    "NetworkPerformanceOptions": {
+                        "BandwidthWeighting": "default"
+                    },
+                    "Operator": {
+                        "Managed": false
+                    },
+                    "InstanceId": "i-054f92978a5914153",
+                    "ImageId": "ami-07ff62358b87c7116",
+                    "State": {
+                        "Code": 80,
+                        "Name": "stopped"
+                    },
+                    "PrivateDnsName": "ip-10-0-1-165.ec2.internal",
+                    "PublicDnsName": "",
+                    "StateTransitionReason": "User initiated (2026-01-25 21:49:55 GMT)",
+                    "KeyName": "armageddon-lab",
+                    "AmiLaunchIndex": 0,
+                    "ProductCodes": [],
+                    "InstanceType": "t3.micro",
+                    "LaunchTime": "2026-01-25T20:38:14+00:00",
+                    "Placement": {
+                        "AvailabilityZoneId": "use1-az6",
+                        "GroupName": "",
+                        "Tenancy": "default",
+                        "AvailabilityZone": "us-east-1a"
+                    },
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "SubnetId": "subnet-01f361366cf94e7b3",
+                    "VpcId": "vpc-0ce840588109d77d1",
+                    "PrivateIpAddress": "10.0.1.165"
+                }
+            ]
+        }
+    ]
+}

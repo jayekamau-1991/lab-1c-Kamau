@@ -1,0 +1,17 @@
+    "events": [
+        {
+            "logStreamName": "i-054f92978a5914153",
+            "timestamp": 1770332459733,
+            "message": "[2026-02-05 23:00:59,612] ERROR in app: Exception on /list [GET]",
+            "ingestionTime": 1770332464755,
+            "eventId": "39479733101193607485620380554639015890747118776661442560"
+        },
+        {
+            "logStreamName": "i-054f92978a5914153",
+            "timestamp": 1770332470516,
+            "message": "[2026-02-05 23:01:10,316] ERROR in app: Exception on /list [GET]",
+            "ingestionTime": 1770332475537,
+            "eventId": "39479733341662542961376089902853569461974398370062598144"
+        }
+    ],
+    "searchedLogStreams": []

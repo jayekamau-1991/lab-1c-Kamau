@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "project_name" {
   description = "Prefix for naming. Students should change from 'chewbacca' to their own."
   type        = string
-  default     = "chewbacca"
+  default     = "kamau"
 }
 
 variable "vpc_cidr" {
@@ -37,7 +37,7 @@ variable "azs" {
 variable "ec2_ami_id" {
   description = "AMI ID for the EC2 app host."
   type        = string
-  default     = "ami-0c55b159cbfafe1f0"
+  default     = "ami-0885b1f6bd170450c"
 }
 
 variable "ec2_instance_type" {
@@ -80,5 +80,5 @@ variable "db_password" {
 variable "sns_email_endpoint" {
   description = "Email for SNS subscription."
   type        = string
-  default     = "student@example.com"
+  default     = "jayekamau@gmail.com"
 }

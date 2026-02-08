@@ -2,7 +2,9 @@
 
 **Date:** 2026-02-08 12:34:40  
 **User:** jayekamau-1991  
-**Status:** ✅ All Verifications Complete
+**Status:** 
+
+All Verifications Complete
 
 ---
 
@@ -17,7 +19,7 @@ tf plan > terraform-plan.txt
 
 ## Part 2: terraform apply Evidence
 
-✅ **Terraform Apply Completed Successfully**
+Terraform Apply Completed Successfully**
 
 All resources deployed:
 - VPC: vpc-048bf26795c0e25a2
@@ -32,7 +34,7 @@ All resources deployed:
 
 ## Part 3: CLI Verification Commands
 
-### Command 1: Verify VPC ✅
+Command 1: Verify VPC 
 
 **Command:**
 ```bash
@@ -71,22 +73,22 @@ aws ec2 describe-vpcs --filters "Name=vpc-id,Values=vpc-048bf26795c0e25a2" --que
 ```
 
 **Verification:**
-- ✅ VPC ID: vpc-048bf26795c0e25a2
-- ✅ CIDR Block: 10.0.0.0/16
-- ✅ State: available
-- ✅ Name: kamau-vpc01
-- ✅ Owner: 533972479438
+- VPC ID: vpc-048bf26795c0e25a2
+- CIDR Block: 10.0.0.0/16
+- State: available
+- Name: kamau-vpc01
+- Owner: 533972479438
 
 ---
 
-### Command 2: Verify EC2 ✅
+### Command 2: Verify EC2 
 
 **Command:**
 ```bash
 aws ec2 describe-instances --instance-ids i-045acf0743869742d --query 'Reservations[0].Instances[0]'
 ```
 
-**Output (Key Details):**
+Output (Key Details):
 ```json
 {
     "Architecture": "x86_64",
@@ -121,24 +123,24 @@ aws ec2 describe-instances --instance-ids i-045acf0743869742d --query 'Reservati
 }
 ```
 
-**Verification:**
-- ✅ Instance ID: i-045acf0743869742d
-- ✅ Public IP: 34.230.64.95
-- ✅ IAM Instance Profile: kamau-instance-profile01
-- ✅ EBS Volume: vol-0e9cb8a78b0d3b7aa
-- ✅ Hypervisor: xen
-- ✅ Architecture: x86_64
+Verification:
+- Instance ID: i-045acf0743869742d
+- Public IP: 34.230.64.95
+- IAM Instance Profile: kamau-instance-profile01
+- EBS Volume: vol-0e9cb8a78b0d3b7aa
+- Hypervisor: xen
+- Architecture: x86_64
 
 ---
 
-### Command 3: Verify RDS ✅
+### Command 3: Verify RDS
 
 **Command:**
 ```bash
 aws rds describe-db-instances --db-instance-identifier kamau-rds01 --query 'DBInstances[0]'
 ```
 
-**Output (Key Details):**
+Output (Key Details):
 ```json
 {
     "PerformanceInsightsEnabled": false,
@@ -164,24 +166,24 @@ aws rds describe-db-instances --db-instance-identifier kamau-rds01 --query 'DBIn
 }
 ```
 
-**Verification:**
-- ✅ DB Instance: kamau-rds01
-- ✅ Engine: MySQL
-- ✅ Network Type: IPV4
-- ✅ Backup Target: region
-- ✅ Certificate Valid Until: 2027-02-08
-- ✅ Status: Available
+Verification:
+- DB Instance: kamau-rds01
+- Engine: MySQL
+- Network Type: IPV4
+- Backup Target: region
+- Certificate Valid Until: 2027-02-08
+- Status: Available
 
 ---
 
-### Command 4: Verify CloudWatch Alarm ✅
+### Command 4: Verify CloudWatch Alarm 
 
 **Command:**
 ```bash
 aws cloudwatch describe-alarms --alarm-names "kamau-db-connection-failure" --query 'MetricAlarms[0]'
 ```
 
-**Output:**
+Output:
 ```json
 {
     "AlarmConfigurationUpdatedTimestamp": 1770550658.433,
@@ -208,25 +210,25 @@ aws cloudwatch describe-alarms --alarm-names "kamau-db-connection-failure" --que
 ```
 
 **Verification:**
-- ✅ Alarm Name: kamau-db-connection-failure
-- ✅ Metric Name: DBConnectionErrors
-- ✅ Namespace: Lab/RDSApp
-- ✅ Threshold: 3 errors per 5 minutes (300 seconds)
-- ✅ State: INSUFFICIENT_DATA (initial - no data yet)
-- ✅ SNS Topic: arn:aws:sns:us-east-1:533972479438:kamau-db-incidents
-- ✅ Actions Enabled: true
-- ✅ Comparison Operator: GreaterThanOrEqualToThreshold
+- Alarm Name: kamau-db-connection-failure
+- Metric Name: DBConnectionErrors
+- Namespace: Lab/RDSApp
+- Threshold: 3 errors per 5 minutes (300 seconds)
+- State: INSUFFICIENT_DATA (initial - no data yet)
+- SNS Topic: arn:aws:sns:us-east-1:533972479438:kamau-db-incidents
+- Actions Enabled: true
+- Comparison Operator: GreaterThanOrEqualToThreshold
 
 ---
 
-### Command 5: Verify SNS Topic ✅
+Command 5: Verify SNS Topic 
 
-**Command:**
+Command:
 ```bash
 aws sns get-topic-attributes --topic-arn arn:aws:sns:us-east-1:533972479438:kamau-db-incidents --query 'Attributes'
 ```
 
-**Output:**
+Output:
 ```json
 {
     "Policy": "{\"Version\":\"2008-10-17\",\"Id\":\"__default_policy_ID\",\"Statement\":[{\"Sid\":\"__default_statement_ID\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\"],\"Resource\":\"arn:aws:sns:us-east-1:533972479438:kamau-db-incidents\",\"Condition\":{\"StringEquals\":{\"AWS:SourceOwner\":\"533972479438\"}}}] ",
@@ -245,35 +247,10 @@ aws sns get-topic-attributes --topic-arn arn:aws:sns:us-east-1:533972479438:kama
 }
 ```
 
-**Verification:**
-- ✅ Topic ARN: arn:aws:sns:us-east-1:533972479438:kamau-db-incidents
-- ✅ Owner: 533972479438
-- ✅ Subscriptions Pending: 1 (waiting for confirmation)
-- ✅ Subscriptions Confirmed: 0
-- ✅ Policy: Allows all SNS actions from AWS account 533972479438
+Verification:
+- Topic ARN: arn:aws:sns:us-east-1:533972479438:kamau-db-incidents
+- Owner: 533972479438
+- Subscriptions Pending: 1 (waiting for confirmation)
+- Subscriptions Confirmed: 0
+- Policy: Allows all SNS actions from AWS account 533972479438
 
----
-
-## Summary of All Verifications ✅
-
-| Resource | ID | Status | Notes |
-|----------|-----|--------|-------|
-| VPC | vpc-048bf26795c0e25a2 | ✅ Verified | 10.0.0.0/16, available |
-| EC2 | i-045acf0743869742d | ✅ Verified | 34.230.64.95, IAM profile attached |
-| RDS | kamau-rds01 | ✅ Verified | MySQL, IPV4, backup enabled |
-| CloudWatch Alarm | kamau-db-connection-failure | ✅ Verified | Threshold: 3 errors/5min, SNS configured |
-| SNS Topic | kamau-db-incidents | ✅ Verified | 1 pending subscription |
-
----
-
-## Next Steps
-
-✅ **Completed:**
-1. terraform plan output
-2. terraform apply evidence
-3. CLI verification commands (5/5)
-
-⏳ **Remaining:**
-4. Incident runbook execution (alarm fired + recovered)
-
-See `INCIDENT_RUNBOOK.md` for testing procedures.

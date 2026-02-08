@@ -1,65 +1,72 @@
-# IAM Role for Production EC2 Instance
+resource "aws_instance" "chewbacca" {
+  ami           = var.ec2_ami_id
+  instance_type = var.ec2_instance_type
+  subnet_id     = aws_subnet.chewbacca_private_subnets[0].id
+  vpc_security_group_ids = [aws_security_group.private_ec2_sg.id]
+  tags = {
+    Name = "Chewbacca"
+    Environment = "production"
+  }
 
-resource "aws_iam_role" "ec2_production_role" {
-  name               = "ec2_production_role"
+  user_data = <<-EOF
+    #!/bin/bash
+    yum update -y
+    yum install -y amazon-ssm-agent
+    systemctl start amazon-ssm-agent
+    EOF
+}
+
+resource "aws_iam_role" "chewbacca_role" {
+  name = "chewbacca_role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
         Action = "sts:AssumeRole"
-        Effect = "Allow"
         Principal = {
           Service = "ec2.amazonaws.com"
         }
+        Effect = "Allow"
+        Sid    = ""
       }
     ]
   })
 }
 
-# IAM Policy for the EC2 Role
-resource "aws_iam_policy" "ec2_production_policy" {
-  name        = "ec2_production_policy"
-  description = "Policy for production EC2 instances to access necessary resources."
-  policy      = jsonencode({
+resource "aws_iam_policy" "chewbacca_policy" {
+  name        = "chewbacca_policy"
+  description = "Policy for Chewbacca EC2 instance"
+  policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
         Effect = "Allow"
         Action = [
-          "ec2:DescribeInstances",
-          "ec2:StartInstances",
-          "ec2:StopInstances"
+          "ssm:GetParameter"
         ],
-        Resource = "*"
+        Resource = ["arn:aws:ssm:${var.aws_region}:*:parameter/lab/db/*"]
       },
       {
         Effect = "Allow"
         Action = [
-          "s3:ListBucket",
-          "s3:GetObject",
-          "s3:PutObject"
+          "secretsmanager:GetSecretValue"
         ],
-        Resource = "arn:aws:s3:::your-bucket-name/*"
+        Resource = [var.secrets_manager_secret_name]
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "logs:*"
+        ],
+        Resource = "*"
       }
     ]
   })
 }
 
-# Attach the IAM Policy to the Role
-resource "aws_iam_role_policy_attachment" "example" {
-  policy_arn = aws_iam_policy.ec2_production_policy.arn
-  role       = aws_iam_role.ec2_production_role.name
+resource "aws_iam_role_policy_attachment" "attach_policy" {
+  policy_arn = aws_iam_policy.chewbacca_policy.arn
+  role       = aws_iam_role.chewbacca_role.name
 }
 
-# EC2 Instance
-resource "aws_instance" "production_ec2" {
-  ami                    = "ami-12345678"  # replace with your AMI ID
-  instance_type         = "t2.micro"
-  iam_instance_profile   = aws_iam_role.ec2_production_role.name
-  vpc_security_group_ids = ["sg-12345678"]  # replace with your security group ID
-  subnet_id             = "subnet-12345678"  # replace with your subnet ID
-  key_name              = "your-key-name"  # replace with your key name
-  tags = {
-    Name = "ProductionEC2Instance"
-  }
-}
+data "aws_caller_identity" "current" {}

@@ -1,23 +1,22 @@
-# Variable definitions for AWS Lambda and Amazon Bedrock
+# Bonus-B ALB, TLS, WAF, and Monitoring Configuration Variables
 
-variable "lambda_function_name" {
-  description = "The name of the Lambda function"
-  type        = string
+variable "bonus_b_alb_name" {
+  description = "The name of the Bonus-B Application Load Balancer"
+  type = string
 }
 
-variable "lambda_timeout" {
-  description = "The timeout for the Lambda function in seconds"
-  type        = number
-  default     = 30
+variable "bonus_b_tls_cert_arn" {
+  description = "The ARN of the TLS certificate for Bonus-B"
+  type = string
 }
 
-variable "bedrock_model_id" {
-  description = "The model ID for the Bedrock service"
-  type        = string
+variable "bonus_b_waf_web_acl_id" {
+  description = "The ID of the WAF Web ACL for Bonus-B"
+  type = string
 }
 
-variable "bedrock_instance_type" {
-  description = "The instance type for the Bedrock service"
-  type        = string
-  default     = "ml.t3.medium"
+variable "bonus_b_monitoring_enabled" {
+  description = "Enable monitoring for Bonus-B"
+  type = bool
+  default = false
 }

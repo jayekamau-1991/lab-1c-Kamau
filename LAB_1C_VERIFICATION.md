@@ -1,14 +1,14 @@
-# Lab 1C - Terraform Infrastructure Verification
+Lab 1C - Terraform Infrastructure Verification
 
-**Date:** 2026-02-08 12:34:40  
-**User:** jayekamau-1991  
-**Status:** 
+Date:** 2026-02-08 12:34:40  
+User:** jayekamau-1991  
+Status:** 
 
 All Verifications Complete
 
 ---
 
-## Part 1: terraform plan Output
+Part 1: terraform plan Output
 
 Run the following to generate the plan:
 ```bash
@@ -16,8 +16,7 @@ tf plan > terraform-plan.txt
 ```
 
 ---
-
-## Part 2: terraform apply Evidence
+Part 2: terraform apply Evidence
 
 Terraform Apply Completed Successfully**
 
@@ -32,16 +31,16 @@ All resources deployed:
 
 ---
 
-## Part 3: CLI Verification Commands
+Part 3: CLI Verification Commands
 
 Command 1: Verify VPC 
 
-**Command:**
+Command:
 ```bash
 aws ec2 describe-vpcs --filters "Name=vpc-id,Values=vpc-048bf26795c0e25a2" --query 'Vpcs[0]'
 ```
 
-**Output:**
+Output:
 ```json
 {
     "OwnerId": "533972479438",
@@ -72,7 +71,7 @@ aws ec2 describe-vpcs --filters "Name=vpc-id,Values=vpc-048bf26795c0e25a2" --que
 }
 ```
 
-**Verification:**
+Verification:
 - VPC ID: vpc-048bf26795c0e25a2
 - CIDR Block: 10.0.0.0/16
 - State: available
@@ -83,7 +82,7 @@ aws ec2 describe-vpcs --filters "Name=vpc-id,Values=vpc-048bf26795c0e25a2" --que
 
 ### Command 2: Verify EC2 
 
-**Command:**
+Command:
 ```bash
 aws ec2 describe-instances --instance-ids i-045acf0743869742d --query 'Reservations[0].Instances[0]'
 ```

@@ -1,17 +1,20 @@
-Incident Runbook
+# Incident and Recovery Documentation
 
-Alert Fired
-- **Alert Type:** [Type of alert]
-- **Service Affected:** [Name of affected service]
-- **Time of Alert:** 2026-02-08 12:45:38 UTC
+## Incident Overview
+The incident was triggered at **12:35:00 UTC**.
 
-Recovery Steps
-1. [Initial step to assess the situation]
-2. [Second step to remediate the issue]
-3. [Third step, if necessary]
-4. [Final verification step]
+### Alarm Details
+- **Value:** 5 errors
 
-Current Status
-- **Status:** [Add current status]
-- **Resolution Time:** [If resolved, add time]  
-- **Notes:** [Any additional notes regarding the incident]
+### Notification
+- **SNS Alert:** Sent successfully.
+
+## Recovery Actions
+Recovery was initiated with **0 errors** at the following time:
+- **Action Initiated:** 12:35:00 UTC
+
+### Final Status
+- The final alarm state changed to **INSUFFICIENT_DATA** at **12:45:00 UTC**.
+
+## Summary
+This document serves to record the incidents and recovery actions taken for audit and future reference.

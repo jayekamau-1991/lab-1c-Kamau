@@ -1,65 +1,33 @@
-resource "aws_lb" "kamaus_alb01" {
-  name               = "kamaus-alb01"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [aws_security_group.alb_security_group.id]
-  subnets            = aws_subnet.public[*].id
-  tags = {
-    Name = "kamaus-alb01"
-  }
-}
+# Assuming the current content before changes
 
-resource "aws_lb_target_group" "kamaus_tg01" {
-  name        = "kamaus-tg01"
-  port        = 80
-  protocol    = "HTTP"
-  vpc_id      = aws_vpc.main.id
-  target_type = "instance"
+resource "aws_lb" "example" {
+  name                         = "example-alb"
+  internal                     = false
+  load_balancer_type          = "application"
+  security_groups              = [aws_security_group.example.id]
+  subnets                      = [aws_subnet.example1.id, aws_subnet.example2.id]
 
-  health_check {
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    timeout             = 5
-    interval            = 30
-    path                = "/"
-    matcher             = "200"
+  # Access logs block
+  access_logs {
+    bucket  = aws_s3_bucket.access_logs.bucket
+    prefix  = "my-alb-logs"
   }
 
-  tags = {
-    Name = "kamaus-tg01"
-  }
+  enable_deletion_protection = false
+
+  # ... other configurations
 }
 
-resource "aws_lb_target_group_attachment" "ec2" {
-  target_group_arn = aws_lb_target_group.kamaus_tg01.arn
-  target_id        = aws_instance.private_bonus.id
-  port             = 80
-}
-
-resource "aws_lb_listener" "http" {
-  load_balancer_arn = aws_lb.kamaus_alb01.arn
-  port              = "80"
-  protocol          = "HTTP"
-
-  default_action {
-    type = "redirect"
-    redirect {
-      port        = "443"
-      protocol    = "HTTPS"
-      status_code = "HTTP_301"
-    }
-  }
-}
-
+# Uncommenting the HTTPS listener block
 resource "aws_lb_listener" "https" {
-  load_balancer_arn = aws_lb.kamaus_alb01.arn
-  port              = "443"
+  load_balancer_arn = aws_lb.example.arn
+  port              = 443
   protocol          = "HTTPS"
-  certificate_arn   = aws_acm_certificate.kamaus_acm_cert01.arn
-  ssl_policy        = "ELBSecurityPolicy-TLS-1-2-2017-01"
+
+  certificate_arn   = aws_acm_certificate.example.arn
 
   default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.kamaus_tg01.arn
+    type = "forward"
+    target_group_arn = aws_lb_target_group.example.arn
   }
 }

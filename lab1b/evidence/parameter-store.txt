@@ -1,0 +1,30 @@
+    "Parameters": [
+        {
+            "Name": "/lab/db/endpoint",
+            "Type": "String",
+            "Value": "armageddon-db.cmj2ggwuqnnl.us-east-1.rds.amazonaws.com",
+            "Version": 1,
+            "LastModifiedDate": "2026-02-05T21:07:59.900000+00:00",
+            "ARN": "arn:aws:ssm:us-east-1:533972479438:parameter/lab/db/endpoint",
+            "DataType": "text"
+        },
+        {
+            "Name": "/lab/db/name",
+            "Type": "String",
+            "Value": "labdb\n",
+            "Version": 1,
+            "LastModifiedDate": "2026-02-05T21:13:42.061000+00:00",
+            "ARN": "arn:aws:ssm:us-east-1:533972479438:parameter/lab/db/name",
+            "DataType": "text"
+        },
+        {
+            "Name": "/lab/db/port",
+            "Type": "String",
+            "Value": "3306",
+            "Version": 1,
+            "LastModifiedDate": "2026-02-05T21:10:04.903000+00:00",
+            "ARN": "arn:aws:ssm:us-east-1:533972479438:parameter/lab/db/port",
+            "DataType": "text"
+        }
+    ],
+    "InvalidParameters": []

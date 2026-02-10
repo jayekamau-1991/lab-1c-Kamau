@@ -1,0 +1,26 @@
+    "MetricAlarms": [
+        {
+            "AlarmName": "lab-db-connection",
+            "AlarmArn": "arn:aws:cloudwatch:us-east-1:533972479438:alarm:lab-db-connection",
+            "AlarmConfigurationUpdatedTimestamp": "2026-02-05T23:23:42.068000+00:00",
+            "ActionsEnabled": true,
+            "OKActions": [],
+            "AlarmActions": [],
+            "InsufficientDataActions": [],
+            "StateValue": "INSUFFICIENT_DATA",
+            "StateReason": "Unchecked: Initial alarm creation",
+            "StateUpdatedTimestamp": "2026-02-05T23:23:42.068000+00:00",
+            "MetricName": "DBConnectionErrors",
+            "Namespace": "LabRDSApp",
+            "Statistic": "Sum",
+            "Dimensions": [],
+            "Period": 60,
+            "EvaluationPeriods": 1,
+            "DatapointsToAlarm": 1,
+            "Threshold": 1.0,
+            "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+            "TreatMissingData": "missing",
+            "StateTransitionedTimestamp": "2026-02-05T23:23:42.068000+00:00"
+        }
+    ],
+    "CompositeAlarms": []

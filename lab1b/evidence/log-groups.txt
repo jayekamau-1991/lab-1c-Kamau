@@ -1,0 +1,12 @@
+    "logGroups": [
+        {
+            "logGroupName": "/aws/ec2/lab-rds-app",
+            "creationTime": 1770332256189,
+            "metricFilterCount": 1,
+            "arn": "arn:aws:logs:us-east-1:533972479438:log-group:/aws/ec2/lab-rds-app:*",
+            "storedBytes": 0,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-east-1:533972479438:log-group:/aws/ec2/lab-rds-app",
+            "deletionProtectionEnabled": false
+        }
+    ]
